@@ -1,19 +1,15 @@
-import {React, useState} from 'react'
+import {React} from 'react'
 import SignUp from './components/Auth/SignUp'
+import Route from './components/Route'
 
 const App = () => {
-  const [users, setUsers] = useState([]);
-
-  const handleClick = (username) => {
-    const newUser = [...users, username];
-    setUsers(newUser);
-    console.log(users)
-    console.log(newUser)
-  }
-
   return (
     <div>
-      <SignUp onClick={handleClick}/>
+      
+
+      <Route path='/signup' >
+        <SignUp />
+      </Route>
     </div>
   )
 }

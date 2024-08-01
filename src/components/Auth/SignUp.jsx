@@ -1,8 +1,11 @@
-import {React, useState} from 'react'
+import {React, useState} from 'react';
+import useUserAccount from '../../hooks/useUserAccount';
 
-const SignUp = ({ onClick }) => {
+const SignUp = () => {
   const [userName, setUserName] = useState('');
   const [passWord, setPassWord] = useState('');
+
+  const { createAccount } = useUserAccount()
   
   const handleChangeUserName = (event) => {
     let inputUsername = event.target.value;
@@ -15,7 +18,7 @@ const SignUp = ({ onClick }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onClick(userName);
+    createAccount(userName, passWord);
     setUserName('');
     setPassWord('');
   }
