@@ -7,8 +7,6 @@ import { NavigationProvider } from './contexts/navigation.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <NavigationProvider>
-    <UserAccountProvider>
-      <App />
-    </UserAccountProvider>
+    <App />
   </NavigationProvider>
 )

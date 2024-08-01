@@ -1,4 +1,5 @@
 import {React, useState, useEffect, createContext} from 'react'
+import UserAccountProvider from "./userAccount"
 
 const NavigationContext = createContext();
 
@@ -24,7 +25,9 @@ const NavigationProvider = ({ children }) => {
     }
     return (
         <NavigationContext.Provider value={{navigate, currentPath}}>
-            {children}
+            <UserAccountProvider>
+                {children}
+            </UserAccountProvider>
         </NavigationContext.Provider>
     )
 }
