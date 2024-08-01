@@ -1,5 +1,4 @@
 import {React, useState, useEffect, createContext} from 'react'
-import UserAccountProvider from "./userAccount"
 
 const NavigationContext = createContext();
 
@@ -16,7 +15,7 @@ const NavigationProvider = ({ children }) => {
         return () => {
             window.removeEventListener('popstate', handler)
         }
-    })
+    },[])
 
     const navigate = (to) => {
         // this instruction will be visit the path that we provide to
@@ -25,9 +24,7 @@ const NavigationProvider = ({ children }) => {
     }
     return (
         <NavigationContext.Provider value={{navigate, currentPath}}>
-            <UserAccountProvider>
-                {children}
-            </UserAccountProvider>
+            {children}
         </NavigationContext.Provider>
     )
 }

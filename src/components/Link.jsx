@@ -13,7 +13,7 @@ const Link = ({ to, children}) => {
         navigate(to)
     }
     return (
-        <a onClick={handleClick} href={to}></a>
+        <a onClick={handleClick} href={to}>{children}</a>
     )
 }
 
