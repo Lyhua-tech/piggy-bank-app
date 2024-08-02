@@ -1,5 +1,10 @@
 import {React, useState} from 'react';
 import useUserAccount from '../../hooks/useUserAccount';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Route from '../Route';
+import Link from "../Link"
+import { Button } from '@mui/material';
 
 const SignUp = () => {
   const [userName, setUserName] = useState('');
@@ -24,11 +29,29 @@ const SignUp = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-        <input type="text" placeholder='Username...' value={userName} onChange={handleChangeUserName}/>
-        <input type="text" placeholder='Password...' value={passWord} onChange={handleChangePassWord}/>
-        <button type='submit'>Sign Up</button>
-    </form>
+    <div>
+      <Box
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+        onSubmit={handleSubmit}
+      >
+        <div>
+          <TextField id="outlined-basic" label="Username..." variant="outlined" value={userName} onChange={handleChangeUserName}/>
+          <TextField id="outlined-basic" label="Password..." variant="outlined" value={passWord} onChange={handleChangePassWord}/>
+        </div>
+        <Link to='/'>
+          <Button type='submit' variant="contained" color="success" >Sign Up</Button>
+        </Link>
+      </Box>
+      <Route path="/">
+        HomePage
+      </Route>
+    </div>
+
   )
 }
 
